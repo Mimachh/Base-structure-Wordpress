@@ -15,7 +15,7 @@
   <div class="site-footer__col-two">
     <h2 class="headline headline--small">Explorer</h2>
     <nav class="nav-list">
-      <ul>
+      <!-- <ul>
         <li><a href="<?php echo esc_url(site_url('/blog')); ?>"
         aria-label="Voir les recettes"
         >Recettes</a></li>
@@ -25,14 +25,22 @@
         <li><a href="<?php echo wp_registration_url(); ?>"
             aria-label="S'inscrire"
             >S'inscrire</a></li>
-      </ul>
+      </ul> -->
+      <?php
+          wp_nav_menu(array(
+            'theme_location' => 'footerMenuLocationOne',
+            'fallback_cb'    => 'custom_footer_menu_1',
+            'menu_id'        => 'your-menu-id',
+            'menu_class'     => 'your-menu-class'
+        ));
+      ?>
     </nav>
   </div>
 
   <div class="site-footer__col-three">
     <h2 class="headline headline--small">En savoir plus</h2>
     <nav class="nav-list">
-      <ul>
+      <!-- <ul>
         <li><a href="<?php echo esc_url(site_url('/mentions-legales')) ?>"
             aria-label="Voir les mentions légales"
             >Mentions Légales</a></li>
@@ -45,7 +53,12 @@
         <li><a href="<?php echo esc_url(site_url('/contact')) ?>"
             aria-label="Contacter Mamie Jacquotte"
             >Contacter Mamie Jacquotte</a></li>
-      </ul>
+      </ul> -->
+      <?php
+        wp_nav_menu(array(
+          'theme_location' => 'footerMenuLocationTwo'
+        ));
+      ?>
     </nav>
   </div>
 </div>

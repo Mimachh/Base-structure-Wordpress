@@ -69,9 +69,16 @@ header {
             li a {
                 font-size: 1.1em;
                 font-weight: 600;
+                padding: 8px 16px;
+                border-radius: 35px;
 
                 &:hover {
                     color: $light;
+                }
+                &.active {
+                    color: $primary;
+                    font-size: 1em;
+                    background-color: $light;
                 }
             }
         }

@@ -24,44 +24,10 @@
             <!-- Desktop Nav -->
             <nav class="nav_desktop nav-links">
                <ul>
-                    <li><a href="<?php echo home_url('/'); ?> " 
-                        <?php if (is_front_page()) echo 'class="active"' ?>
-                        aria-label="Retour à la page principale"
-                        >Accueil</a>
-                    </li>
-                    <li><a href="<?php echo esc_url(site_url('blog')) ?>" 
-                        <?php if (get_post_type() == 'post') echo 'class="active"' ?>
-                        aria-label="Voir les recettes"
-                        >Recettes</a>
-                    </li>
-                    <?php 
-                        if(is_user_logged_in()) { ?>
-                            <li>
-                                <a href="<?php echo esc_url(site_url('mon-carnet-de-recettes')) ?>"
-                                aria-label="Voir mon carnet de recettes"
-                                <?php if (is_page('mon-carnet-de-recettes') OR wp_get_post_parent_id(0) == 136) echo 'class="active"' ?>
-                                >
-                                    Mon Carnet de recettes
-                                </a>  
-                            </li>   
-                        <?php }
-                    ?>
-                    <li>
-                        <?php 
-                            if(is_user_logged_in()) { ?>
-                                <a href="<?php echo wp_logout_url(); ?>"
-                                aria-label="Me déconnecter">
-                                <!-- <span><?php echo get_avatar(get_current_user_id(), 20); ?></span> -->
-                                <span>Déconnexion</span>
-                                </a>
-                            <?php } else { ?>
-                                <a href="<?php echo wp_login_url(); ?>"
-                                aria-label="Me connecter"
-                                >Se connecter</a>
-
-                            <?php }
-                        ?>
-                    </li>
+               <?php wp_nav_menu(array(
+                    'theme_location' => 'headerMenuLocation',
+                    'walker' => new Active_Header_Link_Walker(), // Utilisez votre classe personnalisée ici
+                )); ?>
                     
                     <li class="js-search-trigger">
                         <a href="<?php echo esc_url(site_url('/recherche')); ?>" target="_blank" aria-label="Recherchez sur le site" title="Recherche">
@@ -78,41 +44,10 @@
             <!-- Mobile Nav -->
             <nav class="nav_mobile">
                 <ul>
-                    <li><a href="<?php echo home_url('/'); ?>"
-                        aria-label="Retour à la page principale"
-                        >Accueil</a></li>
-                    <li><a href="<?php echo esc_url(site_url('blog')) ?>" <?php if (get_post_type() == 'post') echo 'class="active"' ?>
-                        aria-label="Voir les recettes"
-                        >Recettes</a></li>
-                    <?php 
-                        if(is_user_logged_in()) { ?>
-                            <li>
-                                <a href="<?php echo esc_url(site_url('mon-carnet-de-recettes')) ?>"
-                                aria-label="Voir mon carnet de recettes"
-                                <?php if (is_page('mon-carnet-de-recettes') OR wp_get_post_parent_id(0) == 136) echo 'class="active"' ?>
-                                >
-                                    Mon Carnet de recettes
-                                </a>  
-                            </li>   
-                        <?php }
-                    ?>
-                    <li>
-                        <?php 
-                            if(is_user_logged_in()) { ?>
-                                <a href="<?php echo wp_logout_url(); ?>"
-                                aria-label="Me déconnecter"
-                                >
-                                <span><?php echo get_avatar(get_current_user_id(), 20); ?></span>
-                                <span>Déconnexion</span>
-                                </a>
-                            <?php } else { ?>
-                                <a href="<?php echo wp_login_url(); ?>"
-                                aria-label="Me connecter"
-                                >Se connecter</a>
-
-                            <?php }
-                        ?>
-                    </li>
+                <?php wp_nav_menu(array(
+                    'theme_location' => 'headerMenuLocation',
+                    'walker' => new Active_Header_Link_Walker(), // Utilisez votre classe personnalisée ici
+                )); ?>
                     <li class="js-search-trigger my-search-svg mobile-search">
                         <a href="<?php echo esc_url(site_url('/recherche')); ?>" aria-label="Recherchez sur le site" title="Recherche">
                             <span>
