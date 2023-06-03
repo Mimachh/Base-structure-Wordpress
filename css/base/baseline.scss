@@ -1,0 +1,104 @@
+
+// General
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // font-family: 'Inter', sans-serif;*
+    font-family: 'Proxima Nova', sans-serif;
+}
+
+body {
+    background-color: white;
+    overflow-x: hidden;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Sizes
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+.main-section {
+    min-height: calc(100vh - ($navHeight * 3 ) + ($footerHeightSmall / 5));
+    width: 100%;
+}
+
+// Background colors
+
+.bg-light-creme {
+    background-color: $light-creme;
+}
+
+.bg-main {
+    background-color: $primary;
+}
+.bg-secondary {
+    background-color: $secondary;
+}
+
+// Display
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block !important;
+}
+
+.flex-visible {
+    display: flex !important;
+}
+
+.relative {
+    position: relative;
+    z-index: 50;
+}
+
+.noscroll { overflow: hidden; }
+
+// Breakpoints
+
+@mixin atSmall {
+    @media (min-width: 530px) {
+      @content;
+    }
+}
+  
+@mixin atSmallMedium {
+    @media (min-width: 767px) {
+      @content;
+    }
+}
+  
+@mixin atMedium {
+    @media (min-width: 960px) {
+      @content;
+    }
+}
+  
+
+@include atSmall {
+    .container {
+        padding: 0 16px;
+ 
+    }
+}
+
+@include atSmall {
+    .main-section {
+        min-height: calc(100vh - ($navHeight * 3 ) + ($footerHeightLarge/ 3));
+        width: 100%;
+    }
+}
